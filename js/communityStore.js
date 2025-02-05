@@ -85,6 +85,10 @@ var communityStore = {
     },
 
     addToCart: function(form) {
+        ConcreteEvent.publish('StoreOnBeforeAddToCart', {
+            'form': form
+        });
+
         var valid = true;
         var priceinput = $(form).find('.store-product-customer-price-entry-field');
 
